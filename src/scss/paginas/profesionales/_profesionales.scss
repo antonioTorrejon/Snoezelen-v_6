@@ -1,0 +1,127 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.profesionales {
+
+    &__registro{
+        @include m.contenedor;
+        margin-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__enlace{
+        @include m.enlace;
+        margin: 2rem;
+        font-size: 2rem;
+    }
+
+    &__texto-registro{
+        font-size: 2rem;
+        font-weight: v.$bold;
+    }
+
+    &__grid{
+        @include m.contenedor;
+        @include m.grid(1, 5rem);
+        @include m.tablet{
+            margin-top: 3rem;
+            @include m.grid(2, 5rem);
+        }
+        @include m.xl_desktop {
+            margin-top: 3rem;
+            @include m.grid(3, 5rem);
+        }
+    }
+
+    
+}
+
+.profesionales-cita{
+    @include m.contenedor;
+
+    &__encabezado{
+        margin: 3rem 0 3rem 0;;
+    }
+    
+    &__tabs{
+        padding-bottom: 3rem;
+
+        @include m.tablet{
+            display: flex;
+            gap: 3rem;
+        }
+    }
+
+    &__boton{
+        @include m.boton(v.$principal, v.$blanco);
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+    }
+
+    &__boton-actual{
+        @include m.boton(darken(v.$principal, 30%), v.$blanco);
+    }
+}
+
+.profesional{
+    @include m.card;
+    background-position: center top;
+    background-size: 300px;
+    background-repeat: no-repeat;
+
+    @for $i from 1 through 4 {
+        &:nth-child(4n + #{$i}){
+            background-image: image-set(
+                url(../img/bg_#{$i}.avif) 1x,
+                url(../img/bg_#{$i}.webp) 1x,
+                url(../img/bg_#{$i}.png) 1x
+            );
+        }
+    }
+
+    &__imagen{
+        min-width: 350px;
+        @include m.tablet{
+            min-width: unset;
+        }
+    }
+
+    &__nombre{
+        margin-top: 5rem;
+        margin-bottom: 0;
+    }
+
+    &__apellido{
+        @extend .profesional__nombre;
+        margin: 0;
+    }
+
+    &__ubicacion{
+        color: v.$gris;
+        margin: 1rem 0;
+        font-size: 2rem;
+        line-height: 1.5;
+    }
+
+    &__disciplina{
+        text-transform: uppercase;
+        font-size: 2.2rem;
+    }
+
+    &__listado-tags{
+        @include m.tags;
+    }
+}
+
+.profesional-sociales{
+    @include m.menu-redes(v.$negro, 3rem);
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.filtro{
+    display: none;
+}

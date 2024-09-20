@@ -1,0 +1,95 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.terapias{
+    padding: 5rem 0;
+    @include m.contenedor;
+
+    &__encabezado-inicio{
+        text-align: left;
+    }
+}
+
+.disciplinas{
+    margin-top: 5rem;
+
+    .swiper-button-next,
+    .swiper-button-prev{
+        color: rgba(v.$blanco, .5);
+    }
+
+}
+
+.disciplina{
+    &__informacion{
+        padding: 2rem;
+        border-radius: 1rem;
+        background-color: v.$principal;
+        color: v.$blanco; 
+        transition: 300ms background-color ease;
+
+        &:hover{
+            background-color: darken(v.$principal, 10%);
+        }
+    }
+
+    &__nombre{
+        font-size: 2.8rem;
+        margin: 0;
+    }
+
+    &__texto{
+        font-size: 1.6rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical; 
+        overflow: hidden;
+
+        @include m.tablet{
+            -webkit-line-clamp: 5;
+        }
+    }
+
+    &__enlace{
+        all: unset;
+        font-size: 1.6rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical; 
+        overflow: hidden;
+
+        @include m.tablet{
+            -webkit-line-clamp: 5;
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    
+     &__modal{
+        width: min(95%, 80rem); 
+        padding: 2rem;
+        border-radius: 1rem;
+        background-color: v.$principal;
+        color: v.$blanco; 
+    } 
+
+    &__boton{
+        background-color: v.$blanco;
+        border-radius: .5rem;
+        padding: 1rem;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.completo{
+    all: unset;
+    font-size: 1.6rem;
+    display: -webkit-box;
+    overflow: hidden;
+}

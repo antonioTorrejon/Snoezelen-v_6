@@ -1,0 +1,21 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor-boton{
+
+    @include m.tablet{
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+    }
+
+    &__boton{
+        @include m.boton(v.$principal, v.$blanco);
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        @include m.tablet{
+            width: auto;
+        }
+    }
+}

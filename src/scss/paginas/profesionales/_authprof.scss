@@ -1,0 +1,13 @@
+@use 'base/mixins' as m;
+
+.authprof{
+    @include m.contenedor-sm;
+
+    &__descripcion{
+        text-align: center;
+    }
+
+    &__formulario{
+        @include m.contenedor-sm;
+    }
+}

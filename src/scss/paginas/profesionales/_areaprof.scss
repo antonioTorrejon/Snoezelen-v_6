@@ -1,0 +1,27 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.areaprof{
+
+    &__grid{
+        @include m.grid(1, 5rem);
+        @include m.tablet{
+            @include m.contenedor;
+            @include m.grid(3, 5rem);
+        }
+    }
+
+    &__icono{
+        align-items: center;
+    }
+
+    &__tipo{
+        @include m.card;
+    }
+
+    &__boton{
+        @include m.boton(v.$principal, v.$blanco);
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,212 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.citas{
+    @include m.contenedor;
+    &__contenedor-boton{
+        @include m.tablet{
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 3rem;
+        }
+    }
+
+    &__boton-volver{
+        @include m.boton(v.$principal, v.$blanco);
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        @include m.tablet{
+            width: auto;
+        }
+    }
+
+    &__encabezado{
+        margin-top: 2.5rem;
+
+        &--citas{
+            text-align: start;
+        }
+    }
+
+    &__formulario{
+        @include m.contenedor-md;
+        margin-bottom: 4rem;
+    }
+
+    &__tabs{
+        padding-bottom: 3rem;
+
+        @include m.tablet{
+            display: flex;
+            gap: 3rem;
+        }
+    }
+
+    &__boton{
+        @include m.boton(v.$principal, v.$blanco);
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+
+        &--paginador{
+            @extend .citas__boton;
+            width: 100%;
+            margin-top: 2rem;
+            @include m.tablet{
+                width: 30%;
+            }
+        }
+
+        &--confirmar{
+            @extend .citas__boton;
+            width: 100%;
+            margin-top: 2rem;
+            @include m.tablet{
+                width: 50%;
+            }
+        }
+    }
+
+    &__boton-actual{
+        @include m.boton(darken(v.$principal, 30%), v.$blanco);
+    }
+
+    &__paginacion{
+        @include m.contenedor-md;
+        @include m.telefono{
+            display: flex;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+    }
+
+    &__listado-profesionales{
+        @include m.grid(1, 3rem);
+        margin-bottom: 1rem;
+        @include m.tablet{
+            @include m.grid(2, 3rem);
+            margin-bottom: 5rem;
+        }
+        @include m.desktop{
+            @include m.grid(3, 3rem);
+            margin-bottom: 5rem;
+        }
+    }
+
+    &__contenedor-resumen{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__resumen-cita{
+        @include m.contenedor-md;
+        @include m.card;
+        margin-bottom: 3rem;
+        p{
+            margin-bottom: 1rem;
+
+        }
+
+        span{
+            color: v.$principal;
+            font-weight: v.$bold;
+            font-size: 2.2rem;
+        }
+    }
+
+    &__contenedor-profesionales{
+        padding-bottom: 2rem;
+        border-bottom: 1px solid lighten(v.$gris, 10%);
+    }
+
+    &__listado{
+        list-style: none;
+        padding: 0;
+    }
+
+    &__li{
+        margin-bottom: 3rem;
+        padding: 1rem;
+        border-top: 1px solid v.$negro;
+
+        p{
+            font-weight: v.$bold;
+        }
+
+        span{
+            font-weight: v.$regular;
+        }
+    }
+}
+
+.ocultar{
+    visibility: hidden;
+}
+
+.seccion{
+    display: none;
+}
+
+.mostrar{
+    display: block;
+}
+
+.profesional-cita{
+    @include m.card;
+    transition-property: transform;
+    transition-duration: 300ms;
+
+    &__ubicacion{
+        color: v.$gris;
+        margin: 1rem 0;
+        font-size: 2rem;
+        line-height: 1.5;
+    }
+
+    &__disciplina{
+        text-transform: uppercase;
+        font-size: 2.2rem;
+        text-align: center;
+        font-weight: v.$black;
+    }
+
+    &__contenedor-imagen{
+        display: flex;
+        justify-content: center;
+    }
+
+    &__imagen-profesionales{
+        width: 25rem;
+        background-color: v.$blanco;
+        border-radius: 50%;
+    }
+
+    &:hover{
+        transform: scale(1.1);
+    }
+
+    &__seleccionado{
+        background-color: v.$principal;
+        p,
+        h4{
+            color: v.$blanco;
+        }
+    }
+}
+
+.error{
+    background-color: lighten(v.$rojo, 60);
+    border-left: .5rem solid v.$rojo;
+    color: v.$rojo;
+    text-align: center;
+}
+
+.exito{
+    background-color: lighten(v.$verde, 40);
+    border-left: .5rem solid v.$verde;
+    color: darken(v.$verde, 20);
+}
+
+.filtro{
+    display: none;
+}

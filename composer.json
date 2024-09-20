@@ -1,0 +1,24 @@
+{
+    "name": "antonio/snoezelen_v4",
+    "description": "Proyecto fin de grado: app que conecta profesionales de la salud con usuarios",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "toniTorrejon",
+            "email": "toni.torrejon.garcia@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.5",
+        "vlucas/phpdotenv": "^5.4",
+        "intervention/image": "^2.7"
+    }
+}
+
